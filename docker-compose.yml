@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   pastebin:
-    image: mkaczanowski/pastebin:latest
+    image: ghcr.io/proclane-integration-gmbh/pastebin:latest
     container_name: pastebin
     volumes:
       - $DOCKERDIR/pastebin:/var/lib/pastebin
@@ -10,8 +10,6 @@ services:
     command: --address 0.0.0.0 --port 8081 --uri ${URI} --db=/var/lib/pastebin/
     ports:
       - "8081:8081"
-    volumes:
-      - ./db:/var/lib/pastebin/
 
   nginx:
     image: "nginx"
